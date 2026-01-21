@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tikuvchilik Atelyesi</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #fafafa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(to right, #ec4899, #f43f5e);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+header h1 {
+    font-size: 2.5rem;
+    animation: fadeDown 1s ease;
+}
+header p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    animation: fadeUp 1.2s ease;
+}
+header a {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #fff;
+    color: #f43f5e;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+header a:hover {
+    transform: scale(1.1);
+}
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f43f5e;
+}
+
+/* ===== ABOUT ===== */
+.about {
+    text-align: center;
+}
+
+/* ===== SERVICES ===== */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+.service {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ===== CONTACT ===== */
+.contact {
+    text-align: center;
+    background: #fdf2f8;
+    border-radius: 10px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #fff;
+}
+
+/* ===== SIMPLE ANIMATION ===== */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeDown {
+    from {opacity:0; transform: translateY(-30px);}
+    to {opacity:1; transform: translateY(0);}
+}
+@keyframes fadeUp {
+    from {opacity:0; transform: translateY(30px);}
+    to {opacity:1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Tikuvchilik Atelyesi</h1>
+    <p>Sifatli va zamonaviy tikuv xizmatlari</p>
+    <a href="#contact">Bog‘lanish</a>
+</header>
+
+<section class="about hidden">
+    <h2>Biz haqimizda</h2>
+    <p>
+        Bizning tikuvchilik atelyemiz ayollar kiyimlarini
+        sifatli va did bilan tikib beradi. Har bir buyurtmaga alohida
+        e’tibor qaratamiz.
+    </p>
+</section>
+
+<section class="hidden">
+    <h2>Xizmatlarimiz</h2>
+    <div class="services">
+        <div class="service">
+            <a href="#">👗 Ayollar kiyimi</a></div>
+        
+        <div class="service"><a href="#">🧵 Ta’mirlash</a></div>
+        
+    </div>
+</section>
+
+<section id="contact" class="contact hidden">
+  <div>  <a href="https://t.me/c/2121743795/112">bizning telegram kanalimiz</a></div>
+    <h2>Aloqa</h2>
+    <p>📍 Manzil: O'zbekiston Respublikasi , Toshkent viloyati , Ohangaron shahar , 4 kichik nohiya , 2a domi , 20-uy</p>
+    <p>📞 Telefon: +998 93 321 54 14</p>
+    
+</section>
+
+<footer>
+    <p>© 2026 Tikuvchilik Atelyesi</p>
+</footer>
+
+<script>
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
